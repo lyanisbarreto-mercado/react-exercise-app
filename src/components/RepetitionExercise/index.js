@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
 
-const Rep = () => {
+const Rep = ({ goHome }) => {
+
     const [counter, setCounter] = useState(0); //setting up the variable counter, and the state setCounter
 
     const [sets,setSets] = useState(1); //with each set, it always starts at one
 
     function createSets() {
-        if (counter > 5) { //for the prototype, there is a set number before the counter resets
+        if (counter > 4) { //for the prototype, there is a set number before the counter resets
         setSets(sets + 1);
         setCounter(1);
         }
@@ -26,16 +27,31 @@ const Rep = () => {
     return (
         <div>
             <div className="top-nav">
-                <i className="fa-solid fa-arrow-left"></i>
+                <i className="fa-solid fa-arrow-left" onClick={goHome}></i>
                 <i className="fa-solid fa-circle-user"></i>
             </div>
             <img src="https://images.pexels.com/photos/176782/pexels-photo-176782.jpeg" alt="A man doing pushups" className="exerciseImage"/>
+            <h2>Push Ups</h2>
             <div className="exercise-count">
                 <h2 className="counter">{counter}</h2>
                 <button onClick={clickUp}><i className="fa-solid fa-arrow-up"></i></button> <button onClick={clickDown}><i className="fa-solid fa-arrow-down"></i></button>
-
+                <button className="adjustments">Count the Reps</button>
+                <button className="adjustments">Adjust Sets</button>
                 
-                <button>{sets}/3</button>
+            </div>
+            <div className="stats">
+                <div className="stats-block">
+                    <h3>100</h3>
+                    <h4>BPM</h4>
+                </div>
+                <div className="stats-block">
+                    <h3>{sets}/3</h3>
+                    <h4>sets</h4>
+                </div>
+                <div className="stats-block">
+                    <h3>120</h3>
+                    <h4>calories</h4>
+                </div>
             </div>
         </div>
     )
