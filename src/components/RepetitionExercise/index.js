@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-const Rep = ({ goHome }) => {
+const Rep = ({ goHome, exercise }) => {
 
     const [counter, setCounter] = useState(0); //setting up the variable counter, and the state setCounter
 
@@ -30,7 +30,7 @@ const Rep = ({ goHome }) => {
                 <i className="fa-solid fa-arrow-left" onClick={goHome}></i>
                 <i className="fa-solid fa-circle-user"></i>
             </div>
-            <img src="https://images.pexels.com/photos/176782/pexels-photo-176782.jpeg" alt="A man doing pushups" className="exerciseImage"/>
+             <img src={exercise?.image} alt={exercise?.name}className="exerciseImage"/>
             <h2>Push Ups</h2>
             <div className="exercise-count">
                 <h2 className="counter">{counter}</h2>

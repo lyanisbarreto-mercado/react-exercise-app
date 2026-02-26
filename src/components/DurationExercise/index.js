@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 //Used a tutorial from The Medium to guide me in making this stopwatch. https://medium.com/how-to-react/simple-way-to-create-a-stopwatch-in-react-js-bcc0e08e041e
 
-const StopwatchCounter = ({ goHome }) => {
+const StopwatchCounter = ({ goHome, exercise }) => {
     const [time, setTime] = useState(0); //setting up the variable counter, and the state setCounter
     const [running, setRunning] = useState(false); //finds if the timer is running or not
     const [active, setActive] = useState("Start")
@@ -56,8 +56,8 @@ const StopwatchCounter = ({ goHome }) => {
                 <i className="fa-solid fa-arrow-left" onClick={goHome}></i>
                 <i className="fa-solid fa-circle-user"></i>
             </div>
-            <img src="https://images.pexels.com/photos/8567597/pexels-photo-8567597.jpeg" alt="A woman running" className="exerciseImage"/>
-            <h2>Push Ups</h2>
+            <img src={exercise?.image} alt={exercise?.name}className="exerciseImage"/>
+            <h2>{exercise?.name}</h2>
             <div className="exercise-count">
                 <h2 className="timer">{timeRunning()}</h2>
                 
